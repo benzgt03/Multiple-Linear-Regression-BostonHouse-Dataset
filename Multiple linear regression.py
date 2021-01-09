@@ -51,17 +51,6 @@ axes.scatter(y_test , y_pred)
 axes.set_title('Prediction price vs price')
 axes.set_xlabel('Price')
 axes.set_ylabel('Prediction price')
-
-
-
-
-
-
-
-
-
-
-
 plt.show()
 
 
