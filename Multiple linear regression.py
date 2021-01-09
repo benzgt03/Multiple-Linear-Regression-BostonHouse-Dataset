@@ -13,20 +13,20 @@ from sklearn.datasets import load_boston #Load Dataset from sklearn
 boston = load_boston()
 df_boston = pd.DataFrame(boston.data)
 df_boston.columns = boston.feature_names
-df_boston['PRICE'] = boston.target
+df_boston['PRICE'] = boston.target #PRICE = Medv
 print(boston.DESCR)
 print(df_boston.head())
 print(df_boston.describe())
 print('check number =',df_boston.nunique()) # number of unique variable
 print('check null =',df_boston.isnull().sum()) # check Null
 print(df_boston.corr())
-# Heatmap
+# Heatmap for analysis
 sns.heatmap(df_boston.corr() , square=True, fmt='.1f', annot=True, cmap='Reds')
-
+#From heat map it mean that Lstat and Rm are the most effective for price
 df_boston.pop('PRICE')
 
 #Train and linear regression
-X_train, X_test, y_train, y_test = train_test_split(boston['data'], boston['target'], random_state=40)
+X_train, X_test, y_train, y_test = train_test_split(boston['data'], boston['target'], random_state=40) #Data = all columns except PRICE , Target = PRICE Columns
 lm = LinearRegression()
 lm.fit(X_train, y_train)
 list_x = df_boston.columns.values.tolist()
