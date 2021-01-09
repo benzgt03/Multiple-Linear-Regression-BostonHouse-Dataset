@@ -50,6 +50,11 @@ axes.scatter(y_test , y_pred)
 axes.set_title('Prediction price vs price')
 axes.set_xlabel('Price')
 axes.set_ylabel('Prediction price')
+
+#residual histogram
+fig2 = plt.figure()
+sns.distplot((y_test-y_pred))
+
 plt.show()
 
 
